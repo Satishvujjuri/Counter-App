@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default / Dark Theme Variables */
+body.dark-theme {
+    background-color: #0f1117;
+    color: rgb(199, 177, 7);
+}
+
+body.dark-theme .modal-card {
+    background: #161b22;
+    color: #e6edf3;
+    border: 1px solid rgba(199, 177, 7, 0.35);
+}
+
+body.dark-theme .modal-content p {
+    color: #c9d1d9;
+}
+
+body.dark-theme .close-btn {
+    color: #c9d1d9;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Light Theme Variables */
+body.light-theme {
+    background-color: #f7f7f9;
+    color: #2d3748;
+}
+
+body.light-theme .icon-btn,
+body.light-theme .circle-btn {
+    border-color: #2d3748;
+    color: #2d3748;
+}
+
+body.light-theme .icon-btn:hover,
+body.light-theme .circle-btn:hover {
+    background-color: rgba(45, 55, 72, 0.12);
+    box-shadow: 0 0 12px rgba(45, 55, 72, 0.25);
+}
+
+body.light-theme #count {
+    text-shadow: none;
+}
+
+body.light-theme .modal-card {
+    background: #ffffff;
+    color: #2d3748;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .modal-content h2 {
+    color: #2d3748;
+}
+
+body.light-theme .modal-content p {
+    color: #4a5568;
+}
+
+body.light-theme .close-btn {
+    color: #2d3748;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Base Body Layout */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    gap: 24px;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Smooth transitions */
+.icon-btn, 
+.circle-btn, 
+.modal-card, 
+#count, 
+#title, 
+#para {
+    transition: background-color 0.4s ease, 
+                color 0.4s ease, 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease;
+}
+
+/* Header */
+.header-container {
+    text-align: center;
+}
+
+#title {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+/* Fast letter-by-letter entrance */
+#title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+    animation: letterPop 0.2s ease forwards;
+    animation-delay: calc(var(--i) * 0.035s);
+}
+
+@keyframes letterPop {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Slide Up and Fade In for Subtitle & Sections */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#para {
+    font-size: 0.95rem;
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+/* Top Bar Controls */
+.top-bar {
+    display: flex;
+    gap: 16px;
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+
+.icon-btn {
+    background: transparent;
+    border: 1.5px solid rgb(199, 177, 7);
+    color: rgb(199, 177, 7);
+    font-size: 1.2rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icon-btn:hover {
+    background-color: rgba(199, 177, 7, 0.2);
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(199, 177, 7, 0.35);
+}
+
+/* Theme Icon Spin & Pop Animation */
+.theme-spin {
+    animation: themeRotate 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes themeRotate {
+    0% {
+        transform: rotate(0deg) scale(0.4);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Counter Box */
+.counter-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 10px;
+    opacity: 0;
+    animation: slideUpFade 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s forwards;
+}
+
+#count {
+    font-size: 5.8rem;
+    min-width: 140px;
+    text-align: center;
+    user-select: none;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(199, 177, 7, 0.3);
+}
+
+.circle-btn {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 2px solid rgb(199, 177, 7);
+    background-color: transparent;
+    color: rgb(199, 177, 7);
+    font-size: 2.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.circle-btn:hover {
+    background-color: rgba(199, 177, 7, 0.22);
+    transform: scale(1.08);
+    box-shadow: 0 0 16px rgba(199, 177, 7, 0.4);
+}
+
+.circle-btn:active {
+    transform: scale(0.95);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-card {
+    padding: 32px;
+    border-radius: 16px;
+    max-width: 360px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: rgb(199, 177, 7);
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.modal-content .author {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: transparent;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
