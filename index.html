@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="123.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Counter App</title>
+</head>
+<body>
+    
+    <div class="header-container">
+        <h1 id="title">Counter App</h1>
+        <p id="para">A simple counter tool for keeping track of numbers.</p>
+    </div>
+
+    <!-- Top toolbar controls -->
+    <div class="top-bar">
+        <button class="icon-btn" id="info" title="Info">ⓘ</button>
+        <button class="icon-btn" id="theme" title="Toggle Theme">☀</button>
+        <button class="icon-btn" id="reset" title="Reset">↻</button>
+    </div>
+
+    <!-- Info Modal Container -->
+    <div id="infoModal" class="modal hidden">
+        <div class="modal-card">
+            <button id="closeInfo" class="close-btn">✕</button>
+            <div class="modal-content">
+                <h2>Simple Counter</h2>
+                <p>A simple tool for counting things and keeping track of numbers.</p>
+                <p class="author">Made By SatishVujjiri 😊</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main counter UI -->
+    <div class="counter-box">
+        <button id="decrease" class="circle-btn">−</button>
+        <h1 id="count">0</h1>
+        <button id="increase" class="circle-btn">+</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
